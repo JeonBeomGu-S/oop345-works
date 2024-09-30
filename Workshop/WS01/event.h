@@ -15,16 +15,16 @@
 #include "settings.h"
 
 namespace seneca {
-    class event {
+    class Event {
         std::string m_name{};
         std::chrono::nanoseconds m_duration{};
     public:
-        event();
-        event(const char* name, const std::chrono::nanoseconds& duration);
+        Event();
+        Event(const char* name, const std::chrono::nanoseconds& duration);
         std::string getName() const;
         std::chrono::nanoseconds getDuration() const;
     };
-    std::ostream &operator<<(std::ostream &os, const event &event);
+    std::ostream &operator<<(std::ostream &os, const Event &event);
 }
 
 #endif //SENECA_EVENT_H

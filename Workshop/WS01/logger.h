@@ -13,22 +13,22 @@
 #include "event.h"
 
 namespace seneca {
-    class logger {
-        event* m_eventArr{};
+    class Logger {
+        Event* m_eventArr{};
         int m_numOfEvents{};
     public:
-        logger();
-        ~logger();
-        logger& operator=(logger&& src);
+        Logger();
+        ~Logger();
+        Logger& operator=(Logger&& src);
         // disable copy operations
-        logger& operator=(logger& src) = delete;
-        logger(logger& src) = delete;
-        void addEvent(const event& event);
-        event* getEventArr() const;
+        Logger& operator=(Logger& src) = delete;
+        Logger(Logger& src) = delete;
+        void addEvent(const Event& event);
+        Event* getEventArr() const;
         int getEventArrSize() const;
     };
 
-    std::ostream& operator<<(std::ostream& os, const logger& logger);
+    std::ostream& operator<<(std::ostream& os, const Logger& logger);
 }
 
 

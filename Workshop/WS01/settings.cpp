@@ -8,5 +8,5 @@
 
 #include "settings.h"
 namespace seneca {
-    settings g_settings;
+    Settings g_settings;
 }

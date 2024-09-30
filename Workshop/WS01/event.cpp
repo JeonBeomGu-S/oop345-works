@@ -10,26 +10,26 @@
 #include "event.h"
 
 namespace seneca {
-    event::event() {
+    Event::Event() {
 
     }
 
-    event::event(const char *name, const std::chrono::nanoseconds &duration) {
+    Event::Event(const char *name, const std::chrono::nanoseconds &duration) {
         if (name) {
             m_name = name;
         }
         m_duration = duration;
     }
 
-    std::string event::getName() const {
+    std::string Event::getName() const {
         return m_name;
     }
 
-    std::chrono::nanoseconds event::getDuration() const {
+    std::chrono::nanoseconds Event::getDuration() const {
         return m_duration;
     }
 
-    std::ostream& operator<<(std::ostream& os, const event& event) {
+    std::ostream& operator<<(std::ostream& os, const Event& event) {
         static int counter = 0;
         counter++;
         os.width(2);

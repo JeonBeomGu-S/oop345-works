@@ -31,21 +31,21 @@ namespace seneca {
         PartOfSpeech m_pos = PartOfSpeech::Unknown;
     };
 
-    class dictionary {
+    class Dictionary {
         Word* m_wordList{nullptr};
         int m_numberOfWords{};
     public:
-        dictionary();
-        dictionary(const char* filename);
+        Dictionary();
+        Dictionary(const char* filename);
         // rule of 5
         // CC / CA
-        dictionary(const dictionary& src);
-        dictionary& operator=(const dictionary& src);
+        Dictionary(const Dictionary& src);
+        Dictionary& operator=(const Dictionary& src);
         // MC / MA
-        dictionary(dictionary&& src);
-        dictionary& operator=(dictionary&& src);
+        Dictionary(Dictionary&& src);
+        Dictionary& operator=(Dictionary&& src);
         // Destructor
-        ~dictionary();
+        ~Dictionary();
         void searchWord(const char* word);
     };
 }

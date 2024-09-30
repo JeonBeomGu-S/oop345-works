@@ -13,11 +13,11 @@
 #include "dictionary.h"
 
 namespace seneca {
-    dictionary::dictionary() {
+    Dictionary::Dictionary() {
 
     }
 
-    dictionary::dictionary(const char *filename) {
+    Dictionary::Dictionary(const char *filename) {
         std::ifstream is(filename);
         if (is.is_open()) {
             std::string temp;
@@ -73,7 +73,7 @@ namespace seneca {
         }
     }
 
-    void dictionary::searchWord(const char *word) {
+    void Dictionary::searchWord(const char *word) {
         bool isFound = false;
         for (int i = 0; i < m_numberOfWords; i++) {
             if (m_wordList[i].m_word == word) {
@@ -127,10 +127,10 @@ namespace seneca {
         }
     }
 
-    dictionary::dictionary(const dictionary& src) {
+    Dictionary::Dictionary(const Dictionary& src) {
         *this = src;
     }
-    dictionary& dictionary::operator=(const dictionary& src) {
+    Dictionary& Dictionary::operator=(const Dictionary& src) {
         if (this != &src) {
             if (m_wordList) {
                 delete[] m_wordList;
@@ -147,11 +147,11 @@ namespace seneca {
 
         return *this;
     }
-    dictionary::dictionary(dictionary&& src) {
+    Dictionary::Dictionary(Dictionary&& src) {
         *this = std::move(src);
     }
 
-    dictionary& dictionary::operator=(dictionary&& src) {
+    Dictionary& Dictionary::operator=(Dictionary&& src) {
         if (this != &src) {
             if (m_wordList) {
                 delete[] m_wordList;
@@ -167,7 +167,7 @@ namespace seneca {
 
         return *this;
     }
-    dictionary::~dictionary() {
+    Dictionary::~Dictionary() {
         delete[] m_wordList;
     }
 }

@@ -1,13 +1,13 @@
 #include <iostream>
 #include <iomanip>
 #include "dictionary.h"
-// #include "dictionary.h"      // intentional
+#include "dictionary.h"      // intentional
 #include "settings.h"
-// #include "settings.h"        // intentional
+#include "settings.h"        // intentional
 #include "timeMonitor.h"
-// #include "timeMonitor.h"     // intentional
+#include "timeMonitor.h"     // intentional
 #include "logger.h"
-// #include "logger.h"          // intentional
+#include "logger.h"          // intentional
 
 // Cheching if header guards exist and follow convention.
 #ifndef SENECA_DICTIONARY_H
@@ -36,17 +36,17 @@ int main(int argc, char** argv)
 		std::cout << std::setw(3) << i + 1 << ": " << argv[i] << '\n';
 	std::cout << "------------------------------------------------------\n\n";
 
-	seneca::logger log;
-	seneca::timeMonitor timer;
+	seneca::Logger log;
+	seneca::TimeMonitor timer;
 
 	{
 		timer.startEvent("Default Constructor");
-		seneca::dictionary dict;
+		seneca::Dictionary dict;
 		log.addEvent(timer.stopEvent());
 	}
 
 	timer.startEvent("Custom Constructor");
-	seneca::dictionary dict(argv[1]);
+	seneca::Dictionary dict(argv[1]);
 	log.addEvent(timer.stopEvent());
 
 	seneca::g_settings.m_verbose = true;
@@ -82,7 +82,7 @@ int main(int argc, char** argv)
 
 		// copy constructor
 		timer.startEvent("Copy Constructor");
-		seneca::dictionary dict2 = dict;
+		seneca::Dictionary dict2 = dict;
 		log.addEvent(timer.stopEvent());
 
 		dict.searchWord("Apple");
@@ -97,11 +97,11 @@ int main(int argc, char** argv)
 
 		{
 			// check for self assignment
-			seneca::dictionary& alias = dict;
+			seneca::Dictionary& alias = dict;
 			dict = alias; // crash here if copy assignment is incorrectly implemented
 		}
 
-		seneca::dictionary dict2(argv[2]);
+		seneca::Dictionary dict2(argv[2]);
 		dict2.searchWord("Efficience");
 
 		timer.startEvent("Copy Assignment Operator");
@@ -118,10 +118,10 @@ int main(int argc, char** argv)
 		std::cout << "T4: Move Constructor\n";
 		std::cout << "==========:==========:==========:==========:==========\n";
 
-		seneca::dictionary dict1 = dict; // make a copy of the bif dictionary
+		seneca::Dictionary dict1 = dict; // make a copy of the bif dictionary
 		
 		timer.startEvent("Move Constructor");
-		seneca::dictionary dict2 = std::move(dict1);
+		seneca::Dictionary dict2 = std::move(dict1);
 		log.addEvent(timer.stopEvent());
 
 		dict1.searchWord("Apple");
@@ -136,12 +136,12 @@ int main(int argc, char** argv)
 
 		{
 			// check for self assignment
-			seneca::dictionary& alias = dict;
+			seneca::Dictionary& alias = dict;
 			dict = std::move(alias); // crash here if move assignment is incorrectly implemented
 		}
 
-		seneca::dictionary dict1(dict);
-		seneca::dictionary dict2(argv[2]);
+		seneca::Dictionary dict1(dict);
+		seneca::Dictionary dict2(argv[2]);
 		dict2.searchWord("Efficience");
 
 		timer.startEvent("Move Assignment Operator");

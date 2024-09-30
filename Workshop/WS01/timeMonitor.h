@@ -14,12 +14,12 @@
 #include "event.h"
 
 namespace seneca {
-    class timeMonitor {
+    class TimeMonitor {
         std::string m_name{};
         std::chrono::time_point<std::chrono::steady_clock> m_startTime;
     public:
         void startEvent(const char* name);
-        event stopEvent();
+        Event stopEvent();
     };
 }
 

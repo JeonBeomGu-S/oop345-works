@@ -13,12 +13,12 @@
 #include <string>
 
 namespace seneca {
-    struct settings {
+    struct Settings {
         bool m_show_all = false;
         bool m_verbose = false;
         std::string m_time_units = "nanoseconds";
     };
-    extern settings g_settings;
+    extern Settings g_settings;
 }
 
 

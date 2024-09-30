@@ -9,15 +9,15 @@
 #include "logger.h"
 
 namespace seneca {
-    logger::logger() {
+    Logger::Logger() {
 
     }
 
-    logger::~logger() {
+    Logger::~Logger() {
         delete[] m_eventArr;
     }
 
-    logger &logger::operator=(logger &&src) {
+    Logger &Logger::operator=(Logger &&src) {
         if (this != &src) {
             delete[] m_eventArr;
             m_eventArr = src.m_eventArr;
@@ -30,9 +30,9 @@ namespace seneca {
         return *this;
     }
 
-    void logger::addEvent(const event &e) {
+    void Logger::addEvent(const Event &e) {
         m_numOfEvents++;
-        event* tmp = new event[m_numOfEvents];
+        Event* tmp = new Event[m_numOfEvents];
         for (int i = 0; i < m_numOfEvents - 1; ++i) {
             tmp[i] = m_eventArr[i];
         }
@@ -41,16 +41,16 @@ namespace seneca {
         m_eventArr[m_numOfEvents - 1] = e;
     }
 
-    event* logger::getEventArr() const {
+    Event* Logger::getEventArr() const {
         return m_eventArr;
     }
 
-    int logger::getEventArrSize() const {
+    int Logger::getEventArrSize() const {
         return m_numOfEvents;
     }
 
-    std::ostream& operator<<(std::ostream& os, const logger& logger) {
-        event* eventArr = logger.getEventArr();
+    std::ostream& operator<<(std::ostream& os, const Logger& logger) {
+        Event* eventArr = logger.getEventArr();
         for (int i = 0; i < logger.getEventArrSize(); ++i) {
             os << eventArr[i] << std::endl;
         }
