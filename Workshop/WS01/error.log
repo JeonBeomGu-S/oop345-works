@@ -1,0 +1,75 @@
+==171764==
+==171764== HEAP SUMMARY:
+==171764==     in use at exit: 52,190,290 bytes in 311,662 blocks
+==171764==   total heap usage: 1,439,585 allocs, 1,127,923 frees, 211,010,380 bytes allocated
+==171764==
+==171764== 445 bytes in 3 blocks are possibly lost in loss record 1 of 7
+==171764==    at 0x4C2B87D: operator new(unsigned long) (vg_replace_malloc.c:472)
+==171764==    by 0x4F7EFC1: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.tcc:284)
+==171764==    by 0x4F7F428: assign (basic_string.h:1596)
+==171764==    by 0x4F7F428: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:802)
+==171764==    by 0x402E7D: seneca::Word::operator=(seneca::Word const&) (dictionary.h:28)
+==171764==    by 0x4028A1: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:144)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x4045BA: main (tester_1.cpp:143)
+==171764==
+==171764== 32,829 bytes in 1,059 blocks are possibly lost in loss record 2 of 7
+==171764==    at 0x4C2B87D: operator new(unsigned long) (vg_replace_malloc.c:472)
+==171764==    by 0x4F7EFC1: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.tcc:284)
+==171764==    by 0x4F7F428: assign (basic_string.h:1596)
+==171764==    by 0x4F7F428: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:802)
+==171764==    by 0x402E62: seneca::Word::operator=(seneca::Word const&) (dictionary.h:28)
+==171764==    by 0x4028A1: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:144)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x404489: main (tester_1.cpp:121)
+==171764==
+==171764== 32,829 bytes in 1,059 blocks are indirectly lost in loss record 3 of 7
+==171764==    at 0x4C2B87D: operator new(unsigned long) (vg_replace_malloc.c:472)
+==171764==    by 0x4F7EFC1: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.tcc:284)
+==171764==    by 0x4F7F428: assign (basic_string.h:1596)
+==171764==    by 0x4F7F428: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:802)
+==171764==    by 0x402E62: seneca::Word::operator=(seneca::Word const&) (dictionary.h:28)
+==171764==    by 0x4028A1: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:144)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x4045BA: main (tester_1.cpp:143)
+==171764==
+==171764== 12,487,559 bytes in 154,768 blocks are indirectly lost in loss record 4 of 7
+==171764==    at 0x4C2B87D: operator new(unsigned long) (vg_replace_malloc.c:472)
+==171764==    by 0x4F7EFC1: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.tcc:284)
+==171764==    by 0x4F7F428: assign (basic_string.h:1596)
+==171764==    by 0x4F7F428: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:802)
+==171764==    by 0x402E7D: seneca::Word::operator=(seneca::Word const&) (dictionary.h:28)
+==171764==    by 0x4028A1: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:144)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x4045BA: main (tester_1.cpp:143)
+==171764==
+==171764== 12,488,004 bytes in 154,771 blocks are possibly lost in loss record 5 of 7
+==171764==    at 0x4C2B87D: operator new(unsigned long) (vg_replace_malloc.c:472)
+==171764==    by 0x4F7EFC1: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.tcc:284)
+==171764==    by 0x4F7F428: assign (basic_string.h:1596)
+==171764==    by 0x4F7F428: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:802)
+==171764==    by 0x402E7D: seneca::Word::operator=(seneca::Word const&) (dictionary.h:28)
+==171764==    by 0x4028A1: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:144)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x404489: main (tester_1.cpp:121)
+==171764==
+==171764== 13,574,312 bytes in 1 blocks are possibly lost in loss record 6 of 7
+==171764==    at 0x4C2CA43: operator new[](unsigned long) (vg_replace_malloc.c:714)
+==171764==    by 0x402818: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:141)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x404489: main (tester_1.cpp:121)
+==171764==
+==171764== 26,094,700 (13,574,312 direct, 12,520,388 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 7
+==171764==    at 0x4C2CA43: operator new[](unsigned long) (vg_replace_malloc.c:714)
+==171764==    by 0x402818: seneca::dictionary::operator=(seneca::dictionary const&) (dictionary.cpp:141)
+==171764==    by 0x40270A: seneca::dictionary::dictionary(seneca::dictionary const&) (dictionary.cpp:131)
+==171764==    by 0x4045BA: main (tester_1.cpp:143)
+==171764==
+==171764== LEAK SUMMARY:
+==171764==    definitely lost: 13,574,312 bytes in 1 blocks
+==171764==    indirectly lost: 12,520,388 bytes in 155,827 blocks
+==171764==      possibly lost: 26,095,590 bytes in 155,834 blocks
+==171764==    still reachable: 0 bytes in 0 blocks
+==171764==         suppressed: 0 bytes in 0 blocks
+==171764==
+==171764== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
