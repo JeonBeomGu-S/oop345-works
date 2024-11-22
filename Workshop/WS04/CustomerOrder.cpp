@@ -63,12 +63,12 @@ namespace seneca {
             m_product = src.m_product;
             m_cntItem = src.m_cntItem;
             m_lstItem = src.m_lstItem;
-        }
 
-        src.m_name = "";
-        src.m_product = "";
-        src.m_cntItem = 0;
-        src.m_lstItem = nullptr;
+            src.m_name = "";
+            src.m_product = "";
+            src.m_cntItem = 0;
+            src.m_lstItem = nullptr;
+        }
 
         return *this;
     }
@@ -91,12 +91,16 @@ namespace seneca {
     }
 
     bool CustomerOrder::isItemFilled(const std::string& itemName) const {
+        bool result = true;
+
         for (auto i = 0; i < m_cntItem; ++i) {
-            if (m_lstItem[i]->m_itemName == itemName)
-                return m_lstItem[i]->m_isFilled;
+            if (m_lstItem[i]->m_itemName == itemName && !m_lstItem[i]->m_isFilled) {
+                result = false;
+                break;
+            }
         }
 
-        return true;
+        return result;
     }
 
     void CustomerOrder::fillItem(Station& station, std::ostream& os) {
@@ -113,7 +117,6 @@ namespace seneca {
                     break;
                 } else {
                     os << "    Unable to fill " << m_name << ", " << m_product << " [" << station.getItemName() << "]" << std::endl;
-                    break;
                 }
             }
         }
@@ -124,7 +127,7 @@ namespace seneca {
         for (auto i = 0; i < m_cntItem; ++i) {
             os << "[";
             os << std::setfill('0');
-            os << std::setw(6) << m_lstItem[i]->m_serialNumber;
+            os << std::right << std::setw(6) << m_lstItem[i]->m_serialNumber;
             os << std::setfill(' ');
             os << "] ";
             os << std::left << std::setw(m_widthField) << m_lstItem[i]->m_itemName;
