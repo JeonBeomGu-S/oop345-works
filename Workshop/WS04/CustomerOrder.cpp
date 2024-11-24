@@ -30,7 +30,7 @@ namespace seneca {
             if (!itemName.empty()) {
                 m_cntItem++;
                 Item **lstItem = new Item*[m_cntItem];
-                for (int i = 0; i < m_cntItem - 1; ++i) {
+                for (size_t i = 0; i < m_cntItem - 1; ++i) {
                     lstItem[i] = m_lstItem[i];
                 }
                 lstItem[m_cntItem - 1] = new Item(itemName);
@@ -53,7 +53,7 @@ namespace seneca {
 
     CustomerOrder& CustomerOrder::operator=(CustomerOrder&& src) noexcept {
         if (this != &src) {
-            for (auto i = 0; i < m_cntItem; ++i) {
+            for (size_t i = 0; i < m_cntItem; ++i) {
                 delete m_lstItem[i];
             }
 
@@ -74,7 +74,7 @@ namespace seneca {
     }
 
     CustomerOrder::~CustomerOrder() {
-        for (int i = 0; i < m_cntItem; ++i) {
+        for (size_t i = 0; i < m_cntItem; ++i) {
             delete m_lstItem[i];
         }
 
@@ -82,7 +82,7 @@ namespace seneca {
     }
 
     bool CustomerOrder::isOrderFilled() const {
-        for (auto i = 0; i < m_cntItem; ++i) {
+        for (size_t i = 0; i < m_cntItem; ++i) {
             if (!m_lstItem[i]->m_isFilled)
                 return false;
         }
@@ -93,7 +93,7 @@ namespace seneca {
     bool CustomerOrder::isItemFilled(const std::string& itemName) const {
         bool result = true;
 
-        for (auto i = 0; i < m_cntItem; ++i) {
+        for (size_t i = 0; i < m_cntItem; ++i) {
             if (m_lstItem[i]->m_itemName == itemName && !m_lstItem[i]->m_isFilled) {
                 result = false;
                 break;
@@ -107,7 +107,7 @@ namespace seneca {
         if (m_cntItem == 0)
             return;
 
-        for (auto i = 0; i < m_cntItem; ++i) {
+        for (size_t i = 0; i < m_cntItem; ++i) {
             if (station.getItemName() == m_lstItem[i]->m_itemName && !m_lstItem[i]->m_isFilled) {
                 if (station.getQuantity() > 0) {
                     station.updateQuantity();
@@ -124,7 +124,7 @@ namespace seneca {
 
     void CustomerOrder::display(std::ostream& os) const {
         os << m_name << " - " << m_product << std::endl;
-        for (auto i = 0; i < m_cntItem; ++i) {
+        for (size_t i = 0; i < m_cntItem; ++i) {
             os << "[";
             os << std::setfill('0');
             os << std::right << std::setw(6) << m_lstItem[i]->m_serialNumber;
