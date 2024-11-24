@@ -24,20 +24,22 @@ namespace seneca {
             std::string first = util.extractToken(record, nextPos, more);
             std::string second = more ? util.extractToken(record, nextPos, more) : "";
 
-            Workstation* firstWorkstation = *std::find_if(stations.begin(), stations.end(), [&](Workstation* station) {
+            std::vector<Workstation*>::const_iterator firstWorkstation = std::find_if(stations.begin(), stations.end(), [&](Workstation* station) {
                return station->getItemName() == first;
             });
 
-            Workstation* secondWorkstation = *std::find_if(stations.begin(), stations.end(), [&](Workstation* station) {
+            std::vector<Workstation*>::const_iterator secondWorkstation = std::find_if(stations.begin(), stations.end(), [&](Workstation* station) {
                 return station->getItemName() == second;
             });
 
-            if (secondWorkstation) {
-                firstWorkstation->setNextStation(secondWorkstation);
-                m_activeLine.push_back(firstWorkstation);
-            } else {
-                firstWorkstation->setNextStation(nullptr);
-                m_activeLine.push_back(firstWorkstation);
+            if (firstWorkstation != stations.end()) {
+                if (secondWorkstation != stations.end()) {
+                    (*firstWorkstation)->setNextStation(*secondWorkstation);
+                    m_activeLine.push_back(*firstWorkstation);
+                } else {
+                    (*firstWorkstation)->setNextStation(nullptr);
+                    m_activeLine.push_back(*firstWorkstation);
+                }
             }
         }
 
